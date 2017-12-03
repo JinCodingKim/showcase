@@ -20,17 +20,21 @@ class Palindrome extends Component {
   }
 
   palindromeResult() {
-    let input = this.state.userInput.split("");
-    let palindromeStr = "";
-    for (let i = 0; i < input.length / 2; i++) {
-      if (input[i] !== input[input.length - i - 1]) {
-        palindromeStr = "false";
-      }
+    let input = this.state.userInput;
+    let revInput = this.state.userInput
+      .split("")
+      .reverse()
+      .join("");
+
+    if (input === revInput) {
+      this.setState({
+        palindrome: "true"
+      });
+    } else {
+      this.setState({
+        palindrome: "false"
+      });
     }
-    palindromeStr = "true";
-    this.setState({
-      palindrome: palindromeStr
-    });
   }
 
   render() {
