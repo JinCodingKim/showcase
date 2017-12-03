@@ -4,13 +4,9 @@ import FilterObject from "../Topics/FilterObject";
 import FilterString from "../Topics/FilterString";
 import Palindrome from "../Topics/Palindrome";
 import Sum from "../Topics/Sum";
+import SeekAndDestroy from "../Topics/SeekAndDestroy";
 
 class TopicBrowser extends Component {
-  // constructor () {
-  //     super()
-
-  //     this.state = {}
-  // }
   render() {
     return (
       <div>
@@ -19,6 +15,7 @@ class TopicBrowser extends Component {
         <FilterString />
         <Palindrome />
         <Sum />
+        <SeekAndDestroy />
       </div>
     );
   }
