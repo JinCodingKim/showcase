@@ -47,10 +47,7 @@ class SeekAndDestroy extends Component {
           className="inputLine"
           onChange={e => this.hitUpdate1(e.target.value)}
         />
-        <button
-          className="confirmationButton"
-          onClick={() => this.changeBoard(this.hitUpdate1)}
-        >
+        <button className="confirmationButton" onClick={this.changeBoard}>
           Hit
         </button>
         <span className="resultsBox">{this.state.hitMemo}</span>

@@ -20,13 +20,11 @@ class Palindrome extends Component {
   }
 
   palindromeResult() {
-    let input = this.state.userInput;
     let revInput = this.state.userInput
       .split("")
       .reverse()
       .join("");
-
-    if (input === revInput) {
+    if (this.state.userInput === revInput) {
       this.setState({
         palindrome: "true"
       });
@@ -47,12 +45,7 @@ class Palindrome extends Component {
             this.updateInput(e.target.value);
           }}
         />
-        <button
-          className="confirmationButton"
-          onClick={() => {
-            this.palindromeResult(this.state.userInput);
-          }}
-        >
+        <button className="confirmationButton" onClick={this.palindromeResult}>
           Check
         </button>
         <span className="resultsBox">Palindrome: {this.state.palindrome} </span>

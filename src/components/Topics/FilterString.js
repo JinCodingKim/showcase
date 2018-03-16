@@ -21,14 +21,9 @@ class FilterString extends Component {
   }
 
   filteredString() {
-    let unfiltered = this.state.unfilteredArray;
-    let input = this.state.userInput;
-    let filtered = [];
-    for (let i = 0; i < unfiltered.length; i++) {
-      if (unfiltered[i].includes(input)) {
-        filtered.push(unfiltered[i]);
-      }
-    }
+    let filtered = this.state.unfilteredArray.filter(e =>
+      e.toLowerCase().includes(this.state.filteredArray.toLowerCase())
+    );
     this.setState({
       filteredArray: filtered
     });
@@ -45,10 +40,7 @@ class FilterString extends Component {
           className="inputLine"
           onChange={e => this.inputUpdate(e.target.value)}
         />
-        <button
-          className="confirmationButton"
-          onClick={() => this.filteredString(this.state.userInput)}
-        >
+        <button className="confirmationButton" onClick={this.filteredString}>
           Filter
         </button>
         <span className="resultsBox filterStringRB">

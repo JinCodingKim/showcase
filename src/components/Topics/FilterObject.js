@@ -35,9 +35,9 @@ class FilterObject extends Component {
   }
 
   updateArray() {
-    let original = this.state.unFilteredArray;
-    let filtered = [];
-    filtered = original.filter(val => val.hasOwnProperty(this.state.userInput));
+    let filtered = this.state.unFilteredArray.filter(val =>
+      val.hasOwnProperty(this.state.userInput)
+    );
     this.setState({
       filteredArray: filtered
     });
@@ -54,10 +54,7 @@ class FilterObject extends Component {
           className="inputLine"
           onChange={e => this.updateInput(e.target.value)}
         />
-        <button
-          className="confirmationButton"
-          onClick={() => this.updateArray(this.state.userInput)}
-        >
+        <button className="confirmationButton" onClick={this.updateArray}>
           Filter
         </button>
         <span className="resultsBox filterObjectRB">

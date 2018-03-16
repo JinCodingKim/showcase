@@ -21,10 +21,15 @@ class EvenAndOdd extends Component {
   }
 
   updateArrayValue() {
-    let inputArray = this.state.userInput.split(",");
     this.setState({
-      evenArray: inputArray.filter(val => val % 2 === 0).join(","),
-      oddArray: inputArray.filter(val => val % 2 !== 0).join(",")
+      evenArray: this.state.userInput
+        .split(",")
+        .filter(val => val % 2 === 0)
+        .join(),
+      oddArray: this.state.userInput
+        .split(",")
+        .filter(val => val % 2 !== 0)
+        .join()
     });
   }
 
@@ -36,10 +41,7 @@ class EvenAndOdd extends Component {
           className="inputLine"
           onChange={e => this.inputUpdate(e.target.value)}
         />
-        <button
-          className="confirmationButton"
-          onClick={() => this.updateArrayValue(this.state.userInput)}
-        >
+        <button className="confirmationButton" onClick={this.updateArrayValue}>
           Split
         </button>
         <span className="resultsBox">Evens: [{this.state.evenArray}]</span>

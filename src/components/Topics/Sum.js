@@ -10,20 +10,14 @@ class Sum extends Component {
       sum: null
     };
 
-    this.updateInput1 = this.updateInput1.bind(this);
-    this.updateInput2 = this.updateInput2.bind(this);
+    this.updateInput = this.updateInput.bind(this);
+
     this.totalSum = this.totalSum.bind(this);
   }
 
-  updateInput1(val) {
+  updateInput(key, val) {
     this.setState({
-      number1: val
-    });
-  }
-
-  updateInput2(val) {
-    this.setState({
-      number2: val
+      [key]: val
     });
   }
 
@@ -40,20 +34,19 @@ class Sum extends Component {
       <div className="puzzleBox sumPB">
         <h4>Sum</h4>
         <input
+          type="number"
           className="inputLine"
-          onChange={e => this.updateInput1(e.target.value)}
+          onChange={e => this.updateInput("number1", e.target.value)}
         />
         <input
+          type="number"
           className="inputLine"
-          onChange={e => this.updateInput2(e.target.value)}
+          onChange={e => this.updateInput("number2", e.target.value)}
         />
-        <button
-          className="confirmationButton"
-          onClick={() => this.totalSum(this.state.number1, this.state.number2)}
-        >
+        <button className="confirmationButton" onClick={this.totalSum}>
           Add
         </button>
-        <span className="resultsBox">Sum:{this.state.sum} </span>
+        <span className="resultsBox">Sum: {this.state.sum}</span>
       </div>
     );
   }
